@@ -32,6 +32,12 @@ ask_user_question
 
 当必要的用户决策不明确时使用它。每次调用可以询问 1–4 个结构化问题，每个问题提供 2–4 个明确选项。
 
+## 实测初始化上下文占用
+
+仅启用本扩展时，lean `ask_user_question` 工具会贡献约 **215 tokens** 的持续模型可见初始化上下文。相同条件下，固定版本的上游 `@juicesharp/rpiv-ask-user-question@2.4.0` 工具贡献 **1,258 tokens**，即减少 **1,043 tokens（82.9%）**。
+
+测量使用 Pi 0.84.4 和 `pi-context-view@0.4.3`，在全新隔离会话中只启用目标扩展，并排除 Pi 内置工具、skills、context files、消息及无关扩展。Context View 按 `ceil(字符数 / 4)` 估算，因此这些是可复现的上下文占用估值，不是 GPT tokenizer 的精确计数。未计入不会发送给模型的纯运行时 UI 和 slash commands。
+
 ## 版本
 
 上游运行时固定为 `@juicesharp/rpiv-ask-user-question@2.4.0`。
