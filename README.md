@@ -1,39 +1,20 @@
 # rpiv-ask-user-question-lean
 
-[中文](#中文) · [English](#english)
+[简体中文](README.zh-CN.md)
 
-## 中文
+A token-lean Pi wrapper around [`@juicesharp/rpiv-ask-user-question`](https://github.com/juicesharp/rpiv-mono/tree/main/packages/rpiv-ask-user-question). It preserves structured clarification while reducing model-facing metadata.
 
-`rpiv-ask-user-question-lean` 是 [`@juicesharp/rpiv-ask-user-question`](https://github.com/juicesharp/rpiv-mono/tree/main/packages/rpiv-ask-user-question) 的轻量 Pi 包装层。它保留问卷 UI、RPC fallback、验证、事件和生命周期行为，只精简模型可见的工具描述、schema 描述和提示规则。
+## What it keeps
 
-### 模型可见工具
+- The questionnaire UI and RPC fallback.
+- Input validation, events, and lifecycle behavior.
+- Single-select and multi-select questions, recommendation ordering, and useful previews.
 
-- `ask_user_question`
+## Why it is lean
 
-### 安装
+The wrapper keeps the upstream `ask_user_question` runtime but shortens its tool description and prompt guidance and removes repeated schema descriptions. The complete questionnaire behavior still comes from the pinned upstream package.
 
-```bash
-pi install git:github.com/kunkun9527/rpiv-ask-user-question-lean
-```
-
-不要和原版 `rpiv-ask-user-question` wrapper 同时加载，以免重复注册工具。
-
-### 开发
-
-```bash
-npm ci
-npm run check
-```
-
-上游依赖固定为 `@juicesharp/rpiv-ask-user-question@2.4.0`；本地测试不需要启动真实问卷 UI。
-
-## English
-
-`rpiv-ask-user-question-lean` is a small Pi wrapper around [`@juicesharp/rpiv-ask-user-question`](https://github.com/juicesharp/rpiv-mono/tree/main/packages/rpiv-ask-user-question). It preserves the questionnaire UI, RPC fallback, validation, events, and lifecycle behavior while trimming model-facing tool text, schema descriptions, and prompt guidance.
-
-It exposes one model-facing tool, `ask_user_question`.
-
-Install:
+## Install
 
 ```bash
 pi install git:github.com/kunkun9527/rpiv-ask-user-question-lean
@@ -41,8 +22,29 @@ pi install git:github.com/kunkun9527/rpiv-ask-user-question-lean
 
 Do not load it together with another `rpiv-ask-user-question` wrapper, or the tool may be registered twice.
 
-Validate locally with `npm ci && npm run check`.
+## Use
 
-## License
+The model sees one tool:
 
-MIT. This project is a wrapper around the MIT-licensed `@juicesharp/rpiv-ask-user-question` project.
+```text
+ask_user_question
+```
+
+Use it when a required user decision is unclear. Each call can ask 1–4 structured questions with 2–4 explicit options per question.
+
+## Versions
+
+The upstream runtime is pinned to `@juicesharp/rpiv-ask-user-question@2.4.0`.
+
+## Development
+
+```bash
+npm ci
+npm run check
+```
+
+The test suite uses a local harness and does not open the real questionnaire UI.
+
+## License and upstream
+
+MIT. This project wraps the MIT-licensed [`@juicesharp/rpiv-ask-user-question`](https://github.com/juicesharp/rpiv-mono/tree/main/packages/rpiv-ask-user-question).
