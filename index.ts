@@ -1,24 +1,5 @@
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import askUserQuestion from "@juicesharp/rpiv-ask-user-question";
-const COLLAPSED_DISPLAY_SERVICE = Symbol.for(
-	"@local/pi-collapsed-tools.display-service.v1",
-);
-
-type CollapsedDisplayTool = { name: string };
-type CollapsedDisplayService = {
-	readonly version: 1;
-	decorate<T extends CollapsedDisplayTool>(tool: T): T;
-};
-
-function decorateWithCollapsedDisplay<T extends CollapsedDisplayTool>(tool: T): T {
-	const services = globalThis as unknown as Record<PropertyKey, unknown>;
-	const candidate = services[COLLAPSED_DISPLAY_SERVICE];
-	if (!candidate || typeof candidate !== "object") return tool;
-	const service = candidate as Partial<CollapsedDisplayService>;
-	return service.version === 1 && typeof service.decorate === "function"
-		? service.decorate(tool)
-		: tool;
-}
 
 const TOOL_DESCRIPTION =
 	"Ask 1-4 structured questions when a required user decision is unclear.";
@@ -53,14 +34,14 @@ export default function (pi: ExtensionAPI): void {
 				return (tool: Parameters<ExtensionAPI["registerTool"]>[0]) => {
 					if (tool.name === "ask_user_question") {
 						removeSchemaDescriptions(tool.parameters);
-						return target.registerTool(decorateWithCollapsedDisplay({
+						return target.registerTool({
 							...tool,
 							description: TOOL_DESCRIPTION,
 							promptSnippet: PROMPT_SNIPPET,
 							promptGuidelines: PROMPT_GUIDELINES,
-						}));
+						});
 					}
-					return target.registerTool(decorateWithCollapsedDisplay(tool));
+					return target.registerTool(tool);
 				};
 			}
 
