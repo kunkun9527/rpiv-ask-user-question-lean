@@ -1,6 +1,6 @@
 {
   "name": "@ssk_dev/rpiv-ask-user-question-lean",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "type": "module",
   "description": "Lean Pi ask-user-question plugin, same functionality — 215 initialization tokens, 83% fewer than the original.",
   "license": "MIT",
