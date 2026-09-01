@@ -1,6 +1,6 @@
 # @ssk_dev/rpiv-ask-user-question-lean
 
-> **Lean Pi ask-user-question extension with identical features: 215 initialization tokens, 83% lighter than original.**
+> **Lean Pi ask-user-question extension with full features: 215 initial tokens (83% fewer than original).**
 > [See my full setup for Pi](https://github.com/kunkun9527/my-lean-pi-setup)
 
 [简体中文](README.zh-CN.md)
