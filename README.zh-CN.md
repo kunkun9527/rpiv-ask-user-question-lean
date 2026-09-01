@@ -1,6 +1,6 @@
 # rpiv-ask-user-question-lean
 
-> **仅需约 215 个初始化 tokens（从约 1,258 tokens 降低）。**
+> **Lean Pi ask-user-question 插件，功能相同：约 215 vs 1,258 个初始化 tokens。**
 > **整套配置：** [查看 Pi Lean Setup](https://github.com/kunkun9527/my-lean-pi-setup)
 
 [English](README.md)

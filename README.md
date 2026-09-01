@@ -1,6 +1,6 @@
 # rpiv-ask-user-question-lean
 
-> **Only ~215 initialization tokens (reduced from ~1,258 tokens).**
+> **Lean Pi ask-user-question plugin, same functionality — only ~215 vs ~1,258 initialization tokens.**
 > [See my full setup for Pi](https://github.com/kunkun9527/my-lean-pi-setup)
 
 [简体中文](README.zh-CN.md)

@@ -2,7 +2,7 @@
   "name": "rpiv-ask-user-question-lean",
   "version": "2.4.0",
   "type": "module",
-  "description": "Only ~215 initialization tokens (reduced from ~1,258 tokens).",
+  "description": "Lean Pi ask-user-question plugin, same functionality — only ~215 vs ~1,258 initialization tokens.",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
