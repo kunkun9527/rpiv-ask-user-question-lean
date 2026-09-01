@@ -1,6 +1,6 @@
-# rpiv-ask-user-question-lean
+# @ssk_dev/rpiv-ask-user-question-lean
 
-> **Lean Pi ask-user-question 插件，功能相同：约 215 vs 1,258 个初始化 tokens。**
+> **Lean Pi ask-user-question 插件，功能相同：215 个初始化 tokens，较原插件减少 83%。**
 > **整套配置：** [查看 Pi Lean Setup](https://github.com/kunkun9527/my-lean-pi-setup)
 
 [English](README.md)
@@ -20,7 +20,7 @@
 ## 安装
 
 ```bash
-pi install git:github.com/kunkun9527/rpiv-ask-user-question-lean
+pi install npm:@ssk_dev/rpiv-ask-user-question-lean
 ```
 
 不要同时加载另一个 `rpiv-ask-user-question` 包装层，否则工具可能被重复注册。

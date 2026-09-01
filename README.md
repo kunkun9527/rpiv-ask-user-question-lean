@@ -1,6 +1,6 @@
-# rpiv-ask-user-question-lean
+# @ssk_dev/rpiv-ask-user-question-lean
 
-> **Lean Pi ask-user-question plugin, same functionality — only ~215 vs ~1,258 initialization tokens.**
+> **Lean Pi ask-user-question plugin, same functionality — 215 initialization tokens, 83% fewer than the original.**
 > [See my full setup for Pi](https://github.com/kunkun9527/my-lean-pi-setup)
 
 [简体中文](README.zh-CN.md)
@@ -20,7 +20,7 @@ The wrapper keeps the upstream `ask_user_question` runtime but shortens its tool
 ## Install
 
 ```bash
-pi install git:github.com/kunkun9527/rpiv-ask-user-question-lean
+pi install npm:@ssk_dev/rpiv-ask-user-question-lean
 ```
 
 Do not load it together with another `rpiv-ask-user-question` wrapper, or the tool may be registered twice.
