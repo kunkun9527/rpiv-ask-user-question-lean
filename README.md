@@ -1,5 +1,8 @@
 # rpiv-ask-user-question-lean
 
+> **Only ~215 model-facing initialization tokens — an extremely token-efficient Pi ask-user-question plugin.**
+> **Setup:** [Install the complete Pi Lean Setup](https://github.com/kunkun9527/my-lean-pi-setup)
+
 [简体中文](README.zh-CN.md)
 
 A token-lean Pi wrapper around [`@juicesharp/rpiv-ask-user-question`](https://github.com/juicesharp/rpiv-mono/tree/main/packages/rpiv-ask-user-question). It preserves structured clarification while reducing model-facing metadata.
