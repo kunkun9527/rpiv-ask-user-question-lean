@@ -1,10 +1,12 @@
 {
-  "name": "rpiv-ask-user-question-lean",
-  "version": "2.4.0-lean.1",
-  "private": true,
+  "name": "@ssk_dev/rpiv-ask-user-question-lean",
+  "version": "2.4.3",
   "type": "module",
-  "description": "Token-lean Pi wrapper for rpiv-ask-user-question with structured clarification preserved.",
+  "description": "Lean Pi ask-user-question extension with full features: 215 initial tokens (83% fewer than original).",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "kunkun9527",
   "repository": {
     "type": "git",
@@ -20,6 +22,12 @@
     "rpiv",
     "ask-user-question",
     "token-efficient"
+  ],
+  "files": [
+    "index.ts",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE"
   ],
   "engines": {
     "node": ">=22.19.0"
