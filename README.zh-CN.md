@@ -1,6 +1,6 @@
 # @ssk_dev/rpiv-ask-user-question-lean
 
-> **Pi 用户提问交互扩展精简版，保留全部功能，仅需 215 初始化 Token，相比原版减少 83%。**
+> **Pi 用户提问交互扩展精简版，保留全部功能，仅需 215 初始化 Token，相比当前上游减少 82.9%。**
 > **完整配置参考：** [查看 Pi Lean Setup](https://github.com/kunkun9527/my-lean-pi-setup)
 
 [English](README.md)
@@ -35,17 +35,16 @@ ask_user_question
 
 单独启用本扩展时，注入到模型初始上下文中的 Token 占用实测如下：
 
-| 模型可见工具 | Lean 精简版 | 原版 `@juicesharp/rpiv-ask-user-question@2.4.0` |
+| 模型可见工具 | Lean 精简版 | 原版 `@juicesharp/rpiv-ask-user-question@2.9.0` |
 | --- | ---: | ---: |
 | `ask_user_question` | **215** | **1,258** |
 
-相比固定版本的上游扩展，初始开销减少了 **1,043 tokens（82.9%）**。
-
+相比当前上游扩展，初始开销减少了 **1,043 tokens（82.9%）**。
 测试环境为 Pi 0.84.4 与 `pi-context-view@0.4.3` 独立会话，排除了 Pi 内置工具、Skills、上下文文件与无关扩展。Context View 按 `ceil(字符数 / 4)` 估算。未计入不会发送给模型的纯运行时 UI 与 Slash 命令。
 
 ## 版本说明
 
-上游运行时锁定为 `@juicesharp/rpiv-ask-user-question@2.4.0`。
+上游运行时锁定为 `@juicesharp/rpiv-ask-user-question@2.9.0`。
 
 ## 本地开发
 
