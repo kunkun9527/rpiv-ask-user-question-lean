@@ -35,21 +35,22 @@ Use this tool when user clarification or decision-making is required. Each call 
 
 With only this extension enabled, its recurring initialization overhead in the model context is:
 
-| Model-facing tool | Lean | Upstream `@juicesharp/rpiv-ask-user-question@2.9.0` |
+| Model-facing tool | Lean | Upstream `@juicesharp/rpiv-ask-user-question@2.10.1` |
 | --- | ---: | ---: |
 | `ask_user_question` | **215** | **1,258** |
 
 This saves **1,043 tokens (82.9%)** compared to the current upstream package.
-The benchmark was measured on Pi 0.84.4 with `pi-context-view@0.4.3` in a fresh isolated session, excluding built-in tools, skills, context files, and unrelated extensions. Context View estimates tokens as `ceil(characters / 4)`. Pure runtime UI elements and slash commands are excluded as they are not sent to the model.
+The benchmark was measured on Pi 0.85.1 with `measure-plugin-tokens-v3.mjs` in a fresh isolated session, excluding built-in tools, skills, context files, and unrelated extensions. Token estimates use `ceil(characters / 4)`. Pure runtime UI elements and slash commands are excluded as they are not sent to the model.
+
 ## Measured initialization footprint
 
-With only this extension enabled, the lean `ask_user_question` tool contributes an estimated **215 tokens** of recurring model-facing initialization context. The current upstream `@juicesharp/rpiv-ask-user-question@2.9.0` tool contributes **1,258 tokens** under the same conditions. That is **1,043 fewer tokens (82.9%)**.
+With only this extension enabled, the lean `ask_user_question` tool contributes an estimated **215 tokens** of recurring model-facing initialization context. The current upstream `@juicesharp/rpiv-ask-user-question@2.10.1` tool contributes **1,258 tokens** under the same conditions. That is **1,043 fewer tokens (82.9%)**.
 
-The measurement used Pi 0.84.4 and `pi-context-view@0.4.3` in a fresh isolated session, excluding Pi built-in tools, skills, context files, messages, and unrelated extensions. Context View estimates text as `ceil(characters / 4)`, so these are reproducible context-footprint estimates rather than exact GPT tokenizer counts. Runtime-only UI and slash commands are not included because they are not sent to the model.
+The measurement used Pi 0.85.1 and `measure-plugin-tokens-v3.mjs` in a fresh isolated session, excluding Pi built-in tools, skills, context files, messages, and unrelated extensions. Token estimates use `ceil(characters / 4)`, so these are reproducible context-footprint estimates rather than exact tokenizer counts. Runtime-only UI and slash commands are not included because they are not sent to the model.
 
 ## Versions
 
-Upstream runtime is pinned to `@juicesharp/rpiv-ask-user-question@2.9.0`.
+Upstream runtime is pinned to `@juicesharp/rpiv-ask-user-question@2.10.1`.
 
 ## Development
 

@@ -53,6 +53,13 @@ test("registers a compact ask_user_question tool while preserving the safety gui
   assert.equal(tool.promptGuidelines.length, 1);
   assert.deepEqual(findDescriptions(tool.parameters), []);
   assert.deepEqual(tool.parameters.required, ["questions"]);
+  const question = tool.parameters.properties.questions.items;
+  assert.deepEqual(question.required, ["question", "header", "options"]);
+  assert.equal(question.properties.multiSelect.type, "boolean");
+  assert.equal(question.properties.multiSelect.default, false);
+  assert.equal(question.properties.options.minItems, 2);
+  assert.equal(question.properties.options.maxItems, 4);
+  assert.equal(question.properties.options.items.properties.preview.type, "string");
   assert.equal(pi.handlers.has("before_agent_start"), true);
 });
 
