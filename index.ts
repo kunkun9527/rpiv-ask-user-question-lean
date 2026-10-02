@@ -26,7 +26,7 @@ const TOOL_DESCRIPTION =
 const PROMPT_SNIPPET = "";
 
 const PROMPT_GUIDELINES = [
-	"Each question needs 2-4 options. Put recommendations first with (Recommended); never add Other or Type something. Use multiSelect only for nonexclusive choices and preview only for useful single-select visual comparisons.",
+	"ask_user_question: Each question needs 2-4 options. Put recommendations first with (Recommended); never add Other or Type something. Use multiSelect only for nonexclusive choices and preview only for useful single-select visual comparisons.",
 ];
 
 function removeSchemaDescriptions(value: unknown, seen = new Set<object>()): void {

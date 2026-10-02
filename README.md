@@ -1,7 +1,7 @@
 # @ssk_dev/rpiv-ask-user-question-lean
 
 <!-- token-benchmark:summary:start -->
-> **Token benchmark: Lean 215, upstream `@juicesharp/rpiv-ask-user-question@2.11.0` 1,258 — 82.9% fewer.**
+> **Token benchmark: Lean 220, upstream `@juicesharp/rpiv-ask-user-question@2.11.0` 1,258 — 82.5% fewer.**
 <!-- token-benchmark:summary:end -->
 > [See my full setup for Pi](https://github.com/kunkun9527/my-lean-pi-setup)
 
@@ -40,11 +40,11 @@ With only this extension enabled, its recurring model-facing initialization cont
 
 | Variant | Tool and prompt contribution | Total |
 | --- | --- | ---: |
-| Lean `@ssk_dev/rpiv-ask-user-question-lean@2.11.0` | `ask_user_question` (215) | **215** |
+| Lean `@ssk_dev/rpiv-ask-user-question-lean@2.11.0` | `ask_user_question` (220) | **220** |
 | Upstream `@juicesharp/rpiv-ask-user-question@2.11.0` | `ask_user_question` (1,258) | **1,258** |
 
-This saves **1,043 tokens (82.9%)**.
-Measured with Pi 0.87.1 in separate temporary processes with empty working directories and configuration. Built-in tools, skills, context files, session history, user messages, unrelated extensions, runtime UI, and slash commands are excluded; `before_agent_start` additions are included. Tokens are a fixed character-proxy estimate using `ceil(characters / 4)`, not provider tokenizer billing.
+This saves **1,038 tokens (82.5%)**.
+Measured with Pi 1.0.0 in separate temporary processes with empty working directories and configuration. Built-in tools, skills, context files, session history, user messages, unrelated extensions, runtime UI, and slash commands are excluded; `before_agent_start` additions are included. Tokens are a fixed character-proxy estimate using `ceil(characters / 4)`, not provider tokenizer billing.
 <!-- token-benchmark:benchmark:end -->
 
 ## Versions
