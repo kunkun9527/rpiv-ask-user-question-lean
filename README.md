@@ -40,7 +40,7 @@ With only this extension enabled, its recurring model-facing initialization cont
 
 | Variant | Tool and prompt contribution | Total |
 | --- | --- | ---: |
-| Lean `@ssk_dev/rpiv-ask-user-question-lean@2.12.0` | `ask_user_question` (220) | **220** |
+| Lean `@ssk_dev/rpiv-ask-user-question-lean@2.12.1` | `ask_user_question` (220) | **220** |
 | Upstream `@juicesharp/rpiv-ask-user-question@2.12.0` | `ask_user_question` (1,258) | **1,258** |
 
 This saves **1,038 tokens (82.5%)**.
