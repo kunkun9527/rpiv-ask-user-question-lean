@@ -1,6 +1,6 @@
 {
   "name": "@ssk_dev/rpiv-ask-user-question-lean",
-  "version": "2.11.1",
+  "version": "2.12.0",
   "type": "module",
   "description": "Lean Pi ask-user-question extension with full features: 215 initial tokens (82.9% fewer than current upstream).",
   "license": "MIT",
@@ -38,12 +38,13 @@
     "check": "npm run typecheck && npm test"
   },
   "dependencies": {
-    "@juicesharp/rpiv-ask-user-question": "2.11.0",
-    "@juicesharp/rpiv-i18n": "2.11.0"
+    "@juicesharp/rpiv-ask-user-question": "2.12.0",
+    "@juicesharp/rpiv-i18n": "2.12.0"
   },
   "peerDependencies": {
     "@earendil-works/pi-coding-agent": ">=0.84.1 <1.0.0",
-    "@earendil-works/pi-tui": ">=0.84.1 <1.0.0"
+    "@earendil-works/pi-tui": ">=0.84.1 <1.0.0",
+    "typebox": "*"
   },
   "devDependencies": {
     "@earendil-works/pi-coding-agent": "0.84.3",
