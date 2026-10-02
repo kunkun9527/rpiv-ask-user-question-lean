@@ -40,7 +40,7 @@ ask_user_question
 
 | 版本 | 工具与 Prompt 构成 | 合计 |
 | --- | --- | ---: |
-| Lean `@ssk_dev/rpiv-ask-user-question-lean@2.11.0` | `ask_user_question` (220) | **220** |
+| Lean `@ssk_dev/rpiv-ask-user-question-lean@2.11.1` | `ask_user_question` (220) | **220** |
 | 上游 `@juicesharp/rpiv-ask-user-question@2.11.0` | `ask_user_question` (1,258) | **1,258** |
 
 节省 **1,038 tokens（82.5%）**。
