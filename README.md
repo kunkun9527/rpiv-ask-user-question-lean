@@ -1,55 +1,59 @@
-# @ssk_dev/rpiv-ask-user-question-lean
+<div align="center">
+
+# rpiv-ask-user-question-lean
+
+**Let Pi ask you structured questions, with a much shorter tool prompt.**
+
+[简体中文](https://github.com/kunkun9527/rpiv-ask-user-question-lean/blob/main/README_zh-CN.md) · Full setup: [My Lean Pi Setup](https://github.com/kunkun9527/my-lean-pi-setup)
+
+</div>
 
 <!-- token-benchmark:summary:start -->
-> **Token benchmark: Lean 220, upstream `@juicesharp/rpiv-ask-user-question@2.15.0` 1,258 — 82.5% fewer.**
+> **Always-on context: 220 tokens vs. 1,258 for upstream `@juicesharp/rpiv-ask-user-question@2.15.0`, 82.5% less.**
 <!-- token-benchmark:summary:end -->
-> [See my full setup for Pi](https://github.com/kunkun9527/my-lean-pi-setup)
 
-[简体中文](https://github.com/kunkun9527/rpiv-ask-user-question-lean/blob/main/README_zh-CN.md)
+A lean version of [`@juicesharp/rpiv-ask-user-question`](https://github.com/juicesharp/rpiv-mono/tree/main/packages/rpiv-ask-user-question). It runs the upstream `2.15.0` runtime as-is; I only condensed the tool description the model reads on every turn.
 
-A lightweight Pi wrapper for [`@juicesharp/rpiv-ask-user-question`](https://github.com/juicesharp/rpiv-mono/tree/main/packages/rpiv-ask-user-question). It preserves interactive questionnaire prompts and structured validation while trimming repetitive prompt metadata.
-
-## Context Footprint Benchmark
-
-<!-- token-benchmark:benchmark:start -->
-With only this extension enabled, its recurring model-facing initialization contribution is:
-
-| Variant | Tool and prompt contribution | Total |
-| --- | --- | ---: |
-| Lean `@ssk_dev/rpiv-ask-user-question-lean@2.15.0` | `ask_user_question` (220) | **220** |
-| Upstream `@juicesharp/rpiv-ask-user-question@2.15.0` | `ask_user_question` (1,258) | **1,258** |
-
-This saves **1,038 tokens (82.5%)**.
-Measured with Pi 1.4.0 in separate temporary processes with empty working directories and configuration. Built-in tools, skills, context files, session history, user messages, unrelated extensions, runtime UI, and slash commands are excluded; `before_agent_start` additions are included. Tokens are a fixed character-proxy estimate using `ceil(characters / 4)`, not provider tokenizer billing.
-<!-- token-benchmark:benchmark:end -->
-
-## Core Features
-
-* Interactive UI: Retains the full questionnaire interface, preview elements, and RPC fallback; in RPC hosts (e.g. Codex via codexhost), questions become native option cards with back navigation, a review step and multi-select toggles; previews are not shown there, so the RPC prompt tells the model not to send them.
-* Structured validation: Supports single-select and multi-select questions, recommendation ordering, and strict option validation.
-* Compact prompt schema: Strips boilerplate descriptions from the tool definition, cutting prompt overhead without changing runtime behavior.
-
-## Installation
+## Install
 
 ```bash
 pi install npm:@ssk_dev/rpiv-ask-user-question-lean
 ```
 
-Do not load this alongside another `rpiv-ask-user-question` wrapper to avoid registering duplicate tools.
+Requires Pi `>=0.84.1` and Node.js `>=22.19.0`. Don't install it alongside upstream or another `rpiv-ask-user-question` wrapper, or the tool gets registered twice.
+
+## Compared with upstream
+
+**Kept**:
+
+- The interactive questionnaire, option previews and RPC fallback.
+- Single- and multi-select questions, recommendation ordering and strict option validation.
+
+**Trimmed**: boilerplate in the tool description; runtime behavior is unchanged.
+
+**Added**:
+
+- **RPC hosts**: in RPC hosts (such as Codex through codexhost), questions become native option cards with back navigation, a review step and multi-select toggles. Those hosts can't show previews, so the RPC prompt tells the model not to send them.
+- **Forgiving arguments**: before validation, a lone question sent flat, `header`/`options` left beside a one-item `questions`, or a missing `header` (derived from the question text) is repaired. Nothing is guessed when there are several questions.
 
 ## Usage
 
-The model interacts with a single tool:
+The model sees one tool, `ask_user_question`. It uses it when a requirement is unclear or you need to make a choice: each call asks 1–4 structured questions with 2–4 clear options each.
 
-```text
-ask_user_question
-```
+## Token comparison
 
-Use this tool when user clarification or decision-making is required. Each call can ask 1 to 4 structured questions with 2 to 4 clear options per question. Malformed calls are repaired before validation: a lone question sent flat, `header`/`options` left beside a one-item `questions`, or a missing `header` (derived from the question text); nothing is guessed for several questions.
+<!-- token-benchmark:benchmark:start -->
+With only this extension enabled, what the model reads on every turn:
 
-## Versions
+| Variant | Breakdown | Total |
+| --- | --- | ---: |
+| Lean `@ssk_dev/rpiv-ask-user-question-lean@2.15.0` | `ask_user_question` (220) | **220** |
+| Upstream `@juicesharp/rpiv-ask-user-question@2.15.0` | `ask_user_question` (1,258) | **1,258** |
 
-Upstream runtime is pinned to `@juicesharp/rpiv-ask-user-question@2.15.0`.
+That is **1,038 tokens (82.5%)** less.
+
+<sub>Method: Pi 1.4.0, each variant measured in its own temporary process with an empty working directory and configuration. Built-in tools, skills, context files, session history, user messages, other extensions, runtime UI and slash commands are not counted; `before_agent_start` additions are. Tokens are estimated as `ceil(characters / 4)`, not billed tokens.</sub>
+<!-- token-benchmark:benchmark:end -->
 
 ## Development
 
@@ -58,8 +62,8 @@ npm ci
 npm run check
 ```
 
-The test suite runs with a local harness and does not launch the actual interactive questionnaire UI.
+Tests run with a local harness and don't open the interactive questionnaire.
 
 ## License
 
-MIT. This project wraps the MIT-licensed [`@juicesharp/rpiv-ask-user-question`](https://github.com/juicesharp/rpiv-mono/tree/main/packages/rpiv-ask-user-question).
+MIT. The runtime comes from [`@juicesharp/rpiv-ask-user-question`](https://github.com/juicesharp/rpiv-mono/tree/main/packages/rpiv-ask-user-question) (MIT).

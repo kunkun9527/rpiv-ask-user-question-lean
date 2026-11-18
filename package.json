@@ -2,7 +2,7 @@
   "name": "@ssk_dev/rpiv-ask-user-question-lean",
   "version": "2.15.0",
   "type": "module",
-  "description": "Lean Pi ask-user-question extension with full features: 215 initial tokens (82.9% fewer than current upstream).",
+  "description": "Lean Pi version of rpiv-ask-user-question: the full interactive questionnaire with a much shorter tool prompt.",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
