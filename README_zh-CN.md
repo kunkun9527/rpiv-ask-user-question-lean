@@ -9,7 +9,7 @@
 </div>
 
 <!-- token-benchmark:summary:start -->
-> **常驻上下文：Lean 220 tokens，上游 `@juicesharp/rpiv-ask-user-question@2.15.0` 1,258 tokens，少 82.5%。**
+<p align="center"><img src="assets/chart.zh-CN.svg" alt="常驻上下文：上游 1,258 tokens，精简版 220，少 82.5%" width="800"></p>
 <!-- token-benchmark:summary:end -->
 
 [`@juicesharp/rpiv-ask-user-question`](https://github.com/juicesharp/rpiv-mono/tree/main/packages/rpiv-ask-user-question) 的精简版。运行时直接用上游 `2.15.0`，我只精简了模型每轮都要读的工具说明。
@@ -49,8 +49,6 @@ pi install npm:@ssk_dev/rpiv-ask-user-question-lean
 | --- | --- | ---: |
 | Lean `@ssk_dev/rpiv-ask-user-question-lean@2.15.0` | `ask_user_question` (220) | **220** |
 | 上游 `@juicesharp/rpiv-ask-user-question@2.15.0` | `ask_user_question` (1,258) | **1,258** |
-
-少 **1,038 tokens（82.5%）**。
 
 <sub>测量方式：Pi 1.4.0，每个版本在独立的临时进程里测，工作目录和配置都是空的。不计内置工具、Skills、上下文文件、会话历史、用户消息、其他扩展、运行时 UI 和 Slash Commands；计入 `before_agent_start` 注入的内容。Token 按 `ceil(字符数 / 4)` 估算，不是实际计费值。</sub>
 <!-- token-benchmark:benchmark:end -->
